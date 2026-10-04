@@ -1,4 +1,4 @@
-# LUMPIA BU ERNI — Landing Page
+# POC - only by Prompt
 
 > ⚠️ **STATUS: PROJECT TESTER / POC** — bukan usaha asli.
 > Project ini dibuat untuk **menguji workflow fullstack-deploy Hermes Agent (Muthi-Bot)**: dari satu prompt chat Telegram → scaffold Next.js → deploy Vercel → create+push GitHub — semuanya dijalankan otomatis oleh bot di home server, tanpa campur tangan manusia.
