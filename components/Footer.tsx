@@ -1,22 +1,91 @@
-// TODO(Azizi): ganti nomor WhatsApp asli Bu Erni sebelum dipublikasikan
-export const WA_NUMBER = "6281234567890";
+export const WA_NUMBER = "6281234567890"; // Ganti nomor asli Bu Erni sebelum publikasi
 
 export default function Footer() {
   return (
-    <footer className="bg-orange-950 py-10 text-center text-orange-200">
-      <div className="font-display text-xl font-bold text-white">LUMPIA BU ERNI</div>
-      <p className="mt-2 text-sm">Lumpia & gorengan rumahan — dibuat dengan ❤️ dan sambal pedas.</p>
-      <a
-        href={`https://wa.me/${WA_NUMBER}`}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="mt-4 inline-block rounded-full bg-green-600 px-6 py-2.5 font-medium text-white transition hover:bg-green-700"
-      >
-        💬 Chat WhatsApp
-      </a>
-      <p className="mt-6 text-xs text-orange-300/70">
-        © {new Date().getFullYear()} Lumpia Bu Erni. Semua hak dilindungi.
-      </p>
+    <footer className="bg-[#1C1917] text-[#D6D0C7] pt-16 pb-12">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6">
+        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4 pb-12 border-b border-[#2D2824]">
+          {/* Brand Info */}
+          <div className="lg:col-span-2 space-y-4">
+            <div className="flex items-center gap-3">
+              <div className="flex h-9 w-9 items-center justify-center rounded-full bg-[#A8422B] text-white">
+                <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" />
+                </svg>
+              </div>
+              <span className="font-display text-xl font-bold tracking-tight text-white">
+                Lumpia Bu Erni
+              </span>
+            </div>
+            <p className="text-sm leading-relaxed text-[#A8A199] max-w-sm">
+              Sajian lumpia goreng dan basah khas resep dapur rumahan Semarangan. Dibuat dari rebung pilihan tanpa bau langu, dibalut kulit crispy keemasan dan saus cocolan racikan khas.
+            </p>
+            <div className="pt-2">
+              <a
+                href={`https://wa.me/${WA_NUMBER}?text=Halo%20Bu%20Erni,%20saya%20ingin%20tanya%20seputar%20pesanan%20lumpia.`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-full bg-[#1F7A43] px-5 py-2.5 text-xs font-semibold text-white transition hover:bg-[#165c32]"
+              >
+                {/* Clean WhatsApp SVG icon */}
+                <svg className="h-4 w-4 fill-current" viewBox="0 0 24 24">
+                  <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z" />
+                </svg>
+                Hubungi via WhatsApp
+              </a>
+            </div>
+          </div>
+
+          {/* Jam Dapur & Lokasi */}
+          <div>
+            <h4 className="text-xs font-bold uppercase tracking-wider text-white">
+              Jam Dapur
+            </h4>
+            <div className="mt-3 space-y-2 text-sm text-[#A8A199]">
+              <p>Setiap Hari: <strong>08.00 – 17.00 WIB</strong></p>
+              <p>Pesanan Besar / Snack Box: Mohon konfirmasi H-1.</p>
+              <p className="text-xs text-[#8C827A] pt-1">
+                Melayani pesan antar & ambil sendiri langsung di dapur.
+              </p>
+            </div>
+          </div>
+
+          {/* Navigasi */}
+          <div>
+            <h4 className="text-xs font-bold uppercase tracking-wider text-white">
+              Tautan Halaman
+            </h4>
+            <ul className="mt-3 space-y-2 text-sm">
+              <li>
+                <a href="#menu" className="text-[#A8A199] transition hover:text-white">
+                  Pilihan Menu
+                </a>
+              </li>
+              <li>
+                <a href="#tentang" className="text-[#A8A199] transition hover:text-white">
+                  Catatan Dapur & Kualitas
+                </a>
+              </li>
+              <li>
+                <a href="#ulasan" className="text-[#A8A199] transition hover:text-white">
+                  Ulasan Pelanggan
+                </a>
+              </li>
+              <li>
+                <a href="#pesan" className="text-[#A8A199] transition hover:text-white">
+                  Formulir Pemesanan
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        {/* Bottom Credits */}
+        <div className="mt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#8C827A]">
+          <p>© {new Date().getFullYear()} Lumpia Bu Erni. Dibuat dengan resep dapur keluarga otentik.</p>
+          <p>Semarang & Sekitarnya • Dapur Rumahan</p>
+        </div>
+      </div>
     </footer>
   );
 }

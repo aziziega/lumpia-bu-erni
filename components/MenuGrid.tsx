@@ -4,49 +4,103 @@ function rupiah(n: number) {
   return "Rp " + n.toLocaleString("id-ID");
 }
 
-const EMOJI: Record<string, string> = {
-  Lumpia: "🥟",
-  Gorengan: "🍤",
-  Minuman: "🥤",
-  Sosis: "🌭",
-};
-
-export default function MenuGrid({ menu, categories }: { menu: MenuItem[]; categories: string[] }) {
+export default function MenuGrid({
+  menu,
+  categories,
+}: {
+  menu: MenuItem[];
+  categories: string[];
+}) {
   return (
-    <section id="menu" className="mx-auto max-w-5xl px-4 py-20">
-      <h2 className="font-display text-center text-3xl font-bold">Menu Kami</h2>
-      <p className="mt-2 text-center text-stone-600">Semua dibuat fresh setiap hari di dapur rumahan.</p>
-
-      {categories.map((cat) => (
-        <div key={cat} className="mt-10">
-          <h3 className="font-display mb-4 flex items-center gap-2 text-xl font-semibold text-orange-900">
-            <span>{EMOJI[cat] ?? "🍽️"}</span> {cat}
-          </h3>
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {menu
-              .filter((m) => m.category === cat)
-              .map((m) => (
-                <div
-                  key={m.id}
-                  className="group rounded-2xl bg-white p-5 shadow transition hover:-translate-y-1 hover:shadow-lg"
-                >
-                  <div className="flex items-start justify-between gap-2">
-                    <h4 className="font-semibold">{m.name}</h4>
-                    {m.is_featured && (
-                      <span className="rounded-full bg-orange-100 px-2 py-0.5 text-xs font-medium text-orange-800">
-                        Favorit ⭐
-                      </span>
-                    )}
-                  </div>
-                  <p className="mt-1 text-sm text-stone-600">{m.description}</p>
-                  <div className="mt-3 font-display text-lg font-bold text-orange-800">
-                    {rupiah(m.price_idr)}
-                  </div>
-                </div>
-              ))}
-          </div>
+    <section id="menu" className="border-b border-[#E8E1D5] bg-[#FAF7F2] py-20">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6">
+        {/* Header Seksi */}
+        <div className="mx-auto max-w-2xl text-center">
+          <span className="text-xs font-bold uppercase tracking-wider text-[#A8422B]">
+            Daftar Hidangan
+          </span>
+          <h2 className="font-display mt-2 text-3xl font-bold tracking-tight text-[#262220] sm:text-4xl">
+            Menu Pilihan Dapur Bu Erni
+          </h2>
+          <p className="mt-3 text-base text-[#615852]">
+            Semua dibuat fresh setiap pagi dengan resep dapur rumahan. Siap dipesan untuk camilan harian,
+            konsumsi kantor, maupun snack box acara keluarga.
+          </p>
         </div>
-      ))}
+
+        {/* Menu per Kategori */}
+        <div className="mt-14 space-y-14">
+          {categories.map((cat) => {
+            const categoryItems = menu.filter((m) => m.category === cat);
+            if (categoryItems.length === 0) return null;
+
+            return (
+              <div key={cat} className="space-y-6">
+                {/* Category Header Bar */}
+                <div className="flex items-center gap-4">
+                  <h3 className="font-display text-2xl font-bold text-[#262220]">
+                    {cat}
+                  </h3>
+                  <div className="h-px flex-1 bg-[#E8E1D5]"></div>
+                  <span className="text-xs font-medium text-[#8C827A]">
+                    {categoryItems.length} pilihan
+                  </span>
+                </div>
+
+                {/* Cards Grid */}
+                <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                  {categoryItems.map((item) => (
+                    <article
+                      key={item.id}
+                      className="group flex flex-col justify-between rounded-2xl border border-[#E8E1D5] bg-white p-6 shadow-sm transition hover:border-[#A8422B]/40 hover:shadow-md"
+                    >
+                      <div>
+                        {/* Top Meta: Category & Badge */}
+                        <div className="flex items-center justify-between gap-2">
+                          <span className="text-[11px] font-semibold tracking-wider uppercase text-[#8C827A]">
+                            {item.category}
+                          </span>
+                          {item.is_featured && (
+                            <span className="rounded-full bg-[#F4EFE6] px-2.5 py-0.5 text-[11px] font-bold text-[#A8422B]">
+                              Paling Favorit
+                            </span>
+                          )}
+                        </div>
+
+                        {/* Title */}
+                        <h4 className="font-display mt-3 text-xl font-bold text-[#262220] transition group-hover:text-[#A8422B]">
+                          {item.name}
+                        </h4>
+
+                        {/* Description */}
+                        <p className="mt-2 text-sm leading-relaxed text-[#615852]">
+                          {item.description || "Dibuat dari bahan segar pilihan dapur Bu Erni."}
+                        </p>
+                      </div>
+
+                      {/* Bottom: Price & Quick Action */}
+                      <div className="mt-6 flex items-center justify-between border-t border-[#F4EFE6] pt-4">
+                        <div>
+                          <span className="block text-[11px] text-[#8C827A]">Harga</span>
+                          <span className="font-display text-lg font-bold text-[#A8422B]">
+                            {rupiah(item.price_idr)}
+                          </span>
+                        </div>
+                        <a
+                          href="#pesan"
+                          className="rounded-full border border-[#E8E1D5] bg-[#FAF7F2] px-4 py-2 text-xs font-semibold text-[#262220] transition hover:bg-[#A8422B] hover:text-white hover:border-[#A8422B]"
+                        >
+                          Pesan Ini
+                        </a>
+                      </div>
+                    </article>
+                  ))}
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
     </section>
   );
 }

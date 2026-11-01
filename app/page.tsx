@@ -1,10 +1,11 @@
 import { supabase } from "@/lib/supabase";
 import { FALLBACK_MENU, FALLBACK_TESTIMONIALS } from "@/lib/fallback";
+import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import MenuGrid from "@/components/MenuGrid";
+import InfoSection from "@/components/InfoSection";
 import Testimonials from "@/components/Testimonials";
 import OrderForm from "@/components/OrderForm";
-import InfoSection from "@/components/InfoSection";
 import Footer from "@/components/Footer";
 import type { MenuItem, Testimonial } from "@/lib/types";
 
@@ -45,13 +46,16 @@ export default async function Home() {
   const categories = [...new Set(menu.map((m) => m.category))];
 
   return (
-    <main>
-      <Hero featuredNames={featured.map((f) => f.name)} />
-      <MenuGrid menu={menu} categories={categories} />
-      <Testimonials testimonials={testimonials} />
-      <OrderForm menu={menu} />
-      <InfoSection />
+    <div className="min-h-screen flex flex-col bg-[#FAF7F2]">
+      <Navbar />
+      <main className="flex-1">
+        <Hero featuredNames={featured.map((f) => f.name)} />
+        <MenuGrid menu={menu} categories={categories} />
+        <InfoSection />
+        <Testimonials testimonials={testimonials} />
+        <OrderForm menu={menu} />
+      </main>
       <Footer />
-    </main>
+    </div>
   );
 }

@@ -1,19 +1,29 @@
 @import "tailwindcss";
 
 :root {
-  --background: #fffbeb;
-  --foreground: #1c1917;
-  --brand: #c2410c;
-  --brand-dark: #7c2d12;
+  --background: #FAF7F2;
+  --foreground: #262220;
+  --brand: #A8422B;
+  --brand-hover: #913621;
+  --brand-dark: #6E2617;
+  --amber-warm: #B45309;
+  --surface: #FFFFFF;
+  --surface-warm: #F4EFE6;
+  --border-warm: #E8E1D5;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-brand: var(--brand);
+  --color-brand-hover: var(--brand-hover);
   --color-brand-dark: var(--brand-dark);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-amber-warm: var(--amber-warm);
+  --color-surface: var(--surface);
+  --color-surface-warm: var(--surface-warm);
+  --color-border-warm: var(--border-warm);
+  --font-sans: var(--font-sans);
+  --font-serif: var(--font-lora);
 }
 
 html {
@@ -21,12 +31,13 @@ html {
 }
 
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
 }
 
 .font-display {
-  font-family: Georgia, "Times New Roman", serif;
-  letter-spacing: -0.02em;
+  font-family: var(--font-serif), Georgia, serif;
+  letter-spacing: -0.015em;
 }
